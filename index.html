@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Valentine's Day Predicter</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background-image: url(heart.webp);
+        background-size: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function shah362(str) {
+        let mod = 362;
+        let sum = 0;
+
+        for (let i = 0; i < str.length; ++i) {
+          charv = str[i].charCodeAt();
+          if (charv < 60) charv = charv + 30;
+          sum += Math.log(Math.exp(charv)) / (1 + Math.cos(charv)) * Math.exp(charv + i);
+        }
+
+        return sum % mod;
+      }
+
+      function ily(x) {
+        let n = 10;
+        let babu = 10;
+
+        let sum = 0;
+
+        for (let i = 0; i < n; ++i) {
+          sum += (n - i) * Math.sin((i + 1) * x);
+        }
+
+        sum = sum * sum;
+
+        return Math.ceil(sum);
+      }
+
+      function calculate() {
+        let name = document.getElementById("name").value;
+        let year = document.getElementById("year").value;
+        let number = 0;
+
+        number = ily(shah362(name + year));
+
+        let output = document.getElementById("output");
+        output.innerHTML = name + " will be recieving " + number + " chocolates on Valentine's day in the year " + year + "!";
+      }
+    </script>
+    <div id="input">
+      <label for="name">Person's Name:</label>
+      <input type="text" id="name" name="name">
+      <br>
+      <label for="year">Year:</label>
+      <input type="number" id="year" name="year">
+      <br>
+      <button onclick="calculate()">Calculate</button>
+    </div>
+    <div id="output">
+    </div>
+  </body>
+</html>
